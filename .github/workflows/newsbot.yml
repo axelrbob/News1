@@ -1,0 +1,49 @@
+name: newsbot
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "Commande (run, digest, check, test, chatid)"
+        default: run
+
+concurrency:
+  group: newsbot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Restaurer la mémoire
+        uses: actions/cache/restore@v4
+        with:
+          path: data
+          key: newsbot-state-${{ github.run_id }}
+          restore-keys: newsbot-state-
+
+      - name: Lancer le bot
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python -m newsbot ${{ github.event.inputs.command || 'run' }}
+
+      - name: Sauvegarder la mémoire
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data
+          key: newsbot-state-${{ github.run_id }}
