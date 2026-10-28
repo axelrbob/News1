@@ -1,0 +1,223 @@
+# Configuration du bot d'actualités.
+# Les secrets (token Telegram, clé API) ne vont JAMAIS ici : ils passent par des
+# variables d'environnement (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, ANTHROPIC_API_KEY).
+
+timezone: Asia/Shanghai          # heure de Chine (UTC+8)
+
+digest:
+  hour: 21                       # heure du résumé du soir (heure locale)
+  max_par_categorie: 10          # nombre d'infos par catégorie dans le résumé
+  score_min: 2                   # on ignore les infos notées 1 dans le résumé
+
+alertes:
+  seuil_urgent: 4                # note >= 4 : notification immédiate
+  seuil_fil: 3                   # note >= 3 : publiée en silence dans l'onglet de sa catégorie (mode "onglets")
+  max_par_heure: 6               # garde-fou anti-spam
+  age_max_heures: 3              # on n'alerte pas sur un article publié il y a plus de 3 h
+  nuit: {debut: 23, fin: 7}      # la nuit, seules les infos notées 5 réveillent
+  fil_sans_onglets: false        # true = en conversation privée, envoie aussi les notes 3 (en silencieux)
+
+# Analyse par IA (facultative). Sans ANTHROPIC_API_KEY, le bot utilise uniquement
+# les mots-clés ci-dessous. Avec la clé, Claude note chaque info de 1 à 5,
+# corrige les catégories, traduit les titres en français et rédige le résumé du soir.
+llm:
+  model: claude-opus-5-5         # claude-haiku-5-5 coûte environ 40 fois moins cher, voir README
+  effort: low
+
+# Mots-clés (minuscules, sans accents nécessaires : le texte est normalisé).
+categories:
+  france:
+    - france
+    - francais
+    - macron
+    - elysee
+    - matignon
+    - premier ministre
+    - assemblee nationale
+    - senat
+    - gouvernement
+    - paris
+    - marseille
+    - lyon
+    - nantes
+    - motion de censure
+    - "49.3"
+    - rassemblement national
+    - lfi
+    - quai d'orsay
+    - french
+  energie:
+    - energie
+    - energy
+    - nucleaire
+    - nuclear
+    - reacteur
+    - reactor
+    - uranium
+    - plutonium
+    - epr
+    - smr
+    - fusion
+    - iter
+    - tokamak
+    - edf
+    - orano
+    - framatome
+    - cea
+    - iaea
+    - aiea
+    - petrole
+    - oil
+    - crude
+    - brent
+    - wti
+    - opep
+    - opec
+    - gaz
+    - gas
+    - lng
+    - gnl
+    - pipeline
+    - gazoduc
+    - charbon
+    - coal
+    - hydro
+    - barrage
+    - dam
+    - solaire
+    - solar
+    - photovolta
+    - eolien
+    - wind power
+    - wind farm
+    - offshore wind
+    - hydrogene
+    - hydrogen
+    - batterie
+    - battery
+    - lithium
+    - terres rares
+    - rare earth
+    - electricite
+    - electricity
+    - power grid
+    - reseau electrique
+    - blackout
+    - centrale
+    - power plant
+    - renewable
+    - renouvelable
+    - carbone
+    - carbon
+    - climat
+    - climate
+    - cop3
+    - emissions
+    - mining
+    - aramco
+    - gazprom
+    - rosatom
+    - totalenergies
+  monde:
+    - guerre
+    - war
+    - geopoliti
+    - diplomat
+    - sommet
+    - summit
+    - onu
+    - united nations
+    - otan
+    - nato
+    - sanctions
+    - election
+    - chine
+    - china
+    - beijing
+    - pekin
+    - taiwan
+    - russie
+    - russia
+    - ukraine
+    - israel
+    - gaza
+    - iran
+    - inde
+    - india
+    - etats-unis
+    - united states
+    - trump
+    - washington
+    - afrique
+    - africa
+    - brics
+
+# Mots qui font monter la note d'importance.
+importance:
+  flash:                         # +2 : signaux "dernière minute"
+    - breaking
+    - urgent
+    - alerte
+    - derniere minute
+    - just in
+    - live updates
+    - en direct
+  majeur:                        # +1.5 : événements majeurs
+    - declaration de guerre
+    - declares war
+    - invasion
+    - invades
+    - coup d'etat
+    - military coup
+    - assassinat
+    - assassinated
+    - attentat
+    - terror attack
+    - seisme
+    - earthquake
+    - tsunami
+    - explosion
+    - frappe
+    - airstrike
+    - missile
+    - essai nucleaire
+    - nuclear test
+    - loi martiale
+    - martial law
+    - etat d'urgence
+    - state of emergency
+    - demission
+    - resigns
+    - dissolution
+    - motion de censure
+    - gouvernement renverse
+    - chute du gouvernement
+    - cessez-le-feu
+    - ceasefire
+    - accident nucleaire
+    - nuclear accident
+    - radioactive leak
+    - fuite radioactive
+    - blackout
+    - coupure geante
+    - krach
+    - market crash
+    - oil prices surge
+    - oil prices plunge
+    - opec+ cuts
+    - dead
+    - morts
+    - killed
+  interet:                       # +1 : tes centres d'intérêt
+    - nucleaire
+    - nuclear
+    - reacteur
+    - reactor
+    - smr
+    - epr
+    - fusion
+    - iter
+    - uranium
+    - chine
+    - china
+    - france

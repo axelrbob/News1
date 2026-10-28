@@ -1,0 +1,120 @@
+# Sources suivies par le bot.
+# region : france | europe | amerique-nord | asie | chine | inde | japon-coree | moyen-orient | afrique | russie | amerique-latine | international
+# cat    : catégorie par défaut (france | energie | monde). Le classement par mots-clés peut en ajouter d'autres.
+# poids  : fiabilité / importance du média (1 à 3). Sert au score d'importance.
+# digest_only : true = jamais d'alerte immédiate (revues scientifiques, blogs...), seulement le résumé du soir.
+
+sources:
+  # ---------------- FRANCE ----------------
+  - {name: Le Monde - À la une, url: "https://www.lemonde.fr/rss/une.xml", region: france, cat: france, poids: 3}
+  - {name: Le Monde - En continu, url: "https://www.lemonde.fr/rss/en_continu.xml", region: france, cat: france, poids: 3}
+  - {name: franceinfo, url: "https://www.francetvinfo.fr/titres.rss", region: france, cat: france, poids: 3}
+  - {name: Le Figaro, url: "https://www.lefigaro.fr/rss/figaro_actualites.xml", region: france, cat: france, poids: 2}
+  - {name: Libération, url: "https://www.liberation.fr/arc/outboundfeeds/rss-all/?outputType=xml", region: france, cat: france, poids: 2}
+  - {name: Le Parisien, url: "https://feeds.leparisien.fr/leparisien/rss", region: france, cat: france, poids: 2}
+  - {name: 20 Minutes, url: "https://www.20minutes.fr/feeds/rss-une.xml", region: france, cat: france, poids: 1}
+  - {name: Ouest-France, url: "https://www.ouest-france.fr/rss/une", region: france, cat: france, poids: 2}
+  - {name: Les Echos, url: "https://services.lesechos.fr/rss/les-echos-economie.xml", region: france, cat: france, poids: 2}
+  - {name: Public Sénat, url: "https://www.publicsenat.fr/rss.xml", region: france, cat: france, poids: 1}
+
+  # ---------------- MONDE : médias francophones / européens ----------------
+  - {name: France 24, url: "https://www.france24.com/fr/rss", region: international, cat: monde, poids: 3}
+  - {name: RFI, url: "https://www.rfi.fr/fr/rss", region: international, cat: monde, poids: 3}
+  - {name: Le Monde - International, url: "https://www.lemonde.fr/international/rss_full.xml", region: france, cat: monde, poids: 3}
+  - {name: Courrier international, url: "https://www.courrierinternational.com/feed/all/rss.xml", region: international, cat: monde, poids: 2}
+  - {name: BBC World, url: "https://feeds.bbci.co.uk/news/world/rss.xml", region: europe, cat: monde, poids: 3}
+  - {name: The Guardian - World, url: "https://www.theguardian.com/world/rss", region: europe, cat: monde, poids: 2}
+  - {name: Deutsche Welle, url: "https://rss.dw.com/rdf/rss-en-all", region: europe, cat: monde, poids: 2}
+  - {name: Euronews, url: "https://www.euronews.com/rss?level=theme&name=news", region: europe, cat: monde, poids: 2}
+  - {name: NYT - World, url: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml", region: amerique-nord, cat: monde, poids: 3}
+  - {name: NPR World, url: "https://feeds.npr.org/1004/rss.xml", region: amerique-nord, cat: monde, poids: 2}
+
+  # ---------------- ASIE ----------------
+  - {name: South China Morning Post, url: "https://www.scmp.com/rss/91/feed", region: chine, cat: monde, poids: 3}
+  - {name: SCMP - China, url: "https://www.scmp.com/rss/4/feed", region: chine, cat: monde, poids: 3}
+  - {name: CGTN, url: "https://www.cgtn.com/subscribe/rss/section/world.xml", region: chine, cat: monde, poids: 2}
+  - {name: China Daily, url: "https://www.chinadaily.com.cn/rss/world_rss.xml", region: chine, cat: monde, poids: 2}
+  - {name: Global Times, url: "https://www.globaltimes.cn/rss/outbrain.xml", region: chine, cat: monde, poids: 1}
+  - {name: Caixin Global, url: "https://www.caixinglobal.com/rss.xml", region: chine, cat: monde, poids: 2}
+  - {name: Nikkei Asia, url: "https://asia.nikkei.com/rss/feed/nar", region: japon-coree, cat: monde, poids: 3}
+  - {name: Japan Times, url: "https://www.japantimes.co.jp/feed/", region: japon-coree, cat: monde, poids: 2}
+  - {name: NHK World, url: "https://www3.nhk.or.jp/rss/news/cat0.xml", region: japon-coree, cat: monde, poids: 2}
+  - {name: Yonhap, url: "https://en.yna.co.kr/RSS/news.xml", region: japon-coree, cat: monde, poids: 2}
+  - {name: Korea Herald, url: "https://www.koreaherald.com/rss/newsAll", region: japon-coree, cat: monde, poids: 1}
+  - {name: CNA (Singapour), url: "https://www.channelnewsasia.com/rssfeeds/8395986", region: asie, cat: monde, poids: 3}
+  - {name: The Diplomat, url: "https://thediplomat.com/feed/", region: asie, cat: monde, poids: 2}
+  - {name: The Hindu - International, url: "https://www.thehindu.com/news/international/feeder/default.rss", region: inde, cat: monde, poids: 2}
+  - {name: The Hindu - National, url: "https://www.thehindu.com/news/national/feeder/default.rss", region: inde, cat: monde, poids: 1}
+  - {name: Times of India - World, url: "https://timesofindia.indiatimes.com/rssfeeds/296589292.cms", region: inde, cat: monde, poids: 1}
+  - {name: Dawn (Pakistan), url: "https://www.dawn.com/feeds/home", region: asie, cat: monde, poids: 2}
+  - {name: VnExpress International, url: "https://e.vnexpress.net/rss/news.rss", region: asie, cat: monde, poids: 1}
+
+  # ---------------- MOYEN-ORIENT ----------------
+  - {name: Al Jazeera, url: "https://www.aljazeera.com/xml/rss/all.xml", region: moyen-orient, cat: monde, poids: 3}
+  - {name: Middle East Eye, url: "https://www.middleeasteye.net/rss", region: moyen-orient, cat: monde, poids: 2}
+  - {name: Arab News, url: "https://www.arabnews.com/rss.xml", region: moyen-orient, cat: monde, poids: 2}
+  - {name: Times of Israel, url: "https://www.timesofisrael.com/feed/", region: moyen-orient, cat: monde, poids: 2}
+  - {name: Tehran Times, url: "https://www.tehrantimes.com/rss", region: moyen-orient, cat: monde, poids: 1}
+  - {name: Daily Sabah (Turquie), url: "https://www.dailysabah.com/rss", region: moyen-orient, cat: monde, poids: 1}
+  - {name: L'Orient-Le Jour, url: "https://www.lorientlejour.com/rss", region: moyen-orient, cat: monde, poids: 2}
+
+  # ---------------- AFRIQUE ----------------
+  - {name: Jeune Afrique, url: "https://www.jeuneafrique.com/feed/", region: afrique, cat: monde, poids: 2}
+  - {name: RFI Afrique, url: "https://www.rfi.fr/fr/afrique/rss", region: afrique, cat: monde, poids: 2}
+  - {name: AllAfrica, url: "https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf", region: afrique, cat: monde, poids: 1}
+  - {name: Mail & Guardian (Afrique du Sud), url: "https://mg.co.za/feed/", region: afrique, cat: monde, poids: 1}
+  - {name: Premium Times (Nigeria), url: "https://www.premiumtimesng.com/feed", region: afrique, cat: monde, poids: 1}
+  - {name: Africanews, url: "https://www.africanews.com/feed/rss", region: afrique, cat: monde, poids: 2}
+
+  # ---------------- RUSSIE / EURASIE ----------------
+  - {name: TASS, url: "https://tass.com/rss/v2.xml", region: russie, cat: monde, poids: 1}
+  - {name: Meduza (indépendant), url: "https://meduza.io/rss/en/all", region: russie, cat: monde, poids: 2}
+  - {name: The Moscow Times, url: "https://www.themoscowtimes.com/rss/news", region: russie, cat: monde, poids: 2}
+  - {name: Kyiv Independent, url: "https://kyivindependent.com/rss/", region: europe, cat: monde, poids: 2}
+
+  # ---------------- AMÉRIQUE LATINE ----------------
+  - {name: MercoPress, url: "https://en.mercopress.com/rss", region: amerique-latine, cat: monde, poids: 1}
+  - {name: Buenos Aires Times, url: "https://www.batimes.com.ar/feed", region: amerique-latine, cat: monde, poids: 1}
+  - {name: El País - América, url: "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/america/portada", region: amerique-latine, cat: monde, poids: 2}
+  - {name: Folha - Mundo, url: "https://feeds.folha.uol.com.br/mundo/rss091.xml", region: amerique-latine, cat: monde, poids: 1}
+
+  # ---------------- ÉNERGIE : nucléaire ----------------
+  - {name: World Nuclear News, url: "https://www.world-nuclear-news.org/rss", region: international, cat: energie, poids: 3}
+  - {name: IAEA News, url: "https://www.iaea.org/feeds/topnews", region: international, cat: energie, poids: 3}
+  - {name: ANS Nuclear Newswire, url: "https://www.ans.org/news/feed/", region: amerique-nord, cat: energie, poids: 2}
+  - {name: Nuclear Engineering International, url: "https://www.neimagazine.com/feed/", region: international, cat: energie, poids: 2}
+  - {name: NucNet, url: "https://www.nucnet.org/news.rss", region: europe, cat: energie, poids: 2}
+  - {name: SFEN, url: "https://www.sfen.org/feed/", region: france, cat: energie, poids: 2}
+  - {name: ITER Newsline, url: "https://www.iter.org/rss/newsline", region: international, cat: energie, poids: 2, digest_only: true}
+
+  # ---------------- ÉNERGIE : pétrole, gaz, charbon, marchés ----------------
+  - {name: OilPrice, url: "https://oilprice.com/rss/main", region: international, cat: energie, poids: 2}
+  - {name: Rigzone, url: "https://www.rigzone.com/news/rss/rigzone_latest.aspx", region: international, cat: energie, poids: 2}
+  - {name: Offshore Energy, url: "https://www.offshore-energy.biz/feed/", region: international, cat: energie, poids: 1}
+  - {name: Mining.com, url: "https://www.mining.com/feed/", region: international, cat: energie, poids: 1}
+  - {name: Connaissance des Énergies, url: "https://www.connaissancedesenergies.org/rss.xml", region: france, cat: energie, poids: 2}
+  - {name: Montel News, url: "https://www.montelnews.com/rss", region: europe, cat: energie, poids: 2}
+
+  # ---------------- ÉNERGIE : renouvelables, climat, transition ----------------
+  - {name: Carbon Brief, url: "https://www.carbonbrief.org/feed/", region: europe, cat: energie, poids: 2}
+  - {name: pv magazine, url: "https://www.pv-magazine.com/feed/", region: international, cat: energie, poids: 2}
+  - {name: Hydro Review, url: "https://www.hydroreview.com/feed/", region: amerique-nord, cat: energie, poids: 1}
+  - {name: Canary Media, url: "https://www.canarymedia.com/rss.rss", region: amerique-nord, cat: energie, poids: 1}
+  - {name: Dialogue Earth (Chine/Asie), url: "https://dialogue.earth/en/feed/", region: chine, cat: energie, poids: 2}
+  - {name: Down To Earth (Inde), url: "https://www.downtoearth.org.in/rss/energy", region: inde, cat: energie, poids: 1}
+  - {name: Energy Monitor, url: "https://www.energymonitor.ai/feed/", region: international, cat: energie, poids: 1}
+  - {name: Electrek - Énergie, url: "https://electrek.co/guides/energy/feed/", region: amerique-nord, cat: energie, poids: 1}
+
+  # ---------------- SCIENCE / PUBLICATIONS ----------------
+  - {name: Nature, url: "https://www.nature.com/nature.rss", region: international, cat: energie, poids: 2, digest_only: true, science: true}
+  - {name: Nature Energy, url: "https://www.nature.com/nenergy.rss", region: international, cat: energie, poids: 2, digest_only: true, science: true}
+  - {name: Science, url: "https://www.science.org/rss/news_current.xml", region: international, cat: energie, poids: 2, digest_only: true, science: true}
+  - {name: Physics World, url: "https://physicsworld.com/feed/", region: europe, cat: energie, poids: 2, digest_only: true, science: true}
+  - {name: ScienceDaily - Nucléaire, url: "https://www.sciencedaily.com/rss/matter_energy/nuclear_energy.xml", region: international, cat: energie, poids: 1, digest_only: true, science: true}
+  - {name: ScienceDaily - Fusion, url: "https://www.sciencedaily.com/rss/matter_energy/fusion_energy.xml", region: international, cat: energie, poids: 1, digest_only: true, science: true}
+  - {name: Phys.org - Physique, url: "https://phys.org/rss-feed/physics-news/", region: international, cat: energie, poids: 1, digest_only: true, science: true}
+  - {name: CERN, url: "https://home.cern/api/news/news/feed.rss", region: europe, cat: energie, poids: 1, digest_only: true, science: true}
+  - {name: Annals of Nuclear Energy, url: "https://rss.sciencedirect.com/publication/science/03064549", region: international, cat: energie, poids: 1, digest_only: true, science: true}
+  - {name: Progress in Nuclear Energy, url: "https://rss.sciencedirect.com/publication/science/01491970", region: international, cat: energie, poids: 1, digest_only: true, science: true}
+  - {name: Nuclear Engineering and Design, url: "https://rss.sciencedirect.com/publication/science/00295493", region: international, cat: energie, poids: 1, digest_only: true, science: true}
+  - {name: arXiv - Physique nucléaire (exp.), url: "https://rss.arxiv.org/rss/nucl-ex", region: international, cat: energie, poids: 1, digest_only: true, science: true}
